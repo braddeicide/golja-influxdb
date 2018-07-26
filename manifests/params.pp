@@ -19,7 +19,7 @@ class influxdb::params {
   $enterprise            = false
   $server_type           = 'data'
 
-  if $enterprise == 'true' && $server_type == 'meta' {
+  if ($enterprise == 'true') and ($server_type == 'meta') {
     $package_name = 'influxdb-meta'
     $service_name = 'influxdb-meta'
   }
