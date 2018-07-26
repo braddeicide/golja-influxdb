@@ -13,6 +13,9 @@ class influxdb(
   $manage_service            = $influxdb::params::manage_service,
   $conf_template             = $influxdb::params::conf_template,
   $config_file               = $influxdb::params::config_file,
+  $package_name              = $influxdb::params::package_name,
+  $enterprise                = $influxdb::params::enterprise,
+  $server_type               = $influxdb::params::server_type,
 
   $global_config             = $influxdb::params::global_config,
   $meta_config               = $influxdb::params::meta_config,

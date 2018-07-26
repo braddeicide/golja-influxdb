@@ -16,6 +16,18 @@ class influxdb::params {
   $influxd_opts          = undef
   $manage_install        = true
 
+  $enterprise            = false
+  $server_type           = 'data'
+
+  if $enterprise == 'true' && $server_type == 'meta' {
+    $package_name = 'influxdb-meta'
+    $service_name = 'influxdb-meta'
+  }
+  else {
+    $package_name = 'influxdb'
+    $service_name = 'influxdb'
+  }
+
   $global_config = {
     'reporting-disabled' => true,
     'bind-address'       => ':8088',

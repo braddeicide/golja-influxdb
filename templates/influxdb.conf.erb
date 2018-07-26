@@ -55,6 +55,14 @@
 
 <%= build_section('meta', @meta_config) %>
 
+<% if influx::enterprise? -%>
+<%= build_section('enterprise', @enterprise_config, false) %>
+
+<%= build_section('cluster', @cluster_config) %>
+
+<%= build_section('anti-entropy', @anti_entropy_config) %>
+<% end -%>
+<% if influx::server_type == 'data' -%>
 <%= build_section('data', @data_config) %>
 
 <%= build_section('logging', @logging_config) %>
@@ -84,3 +92,4 @@
 <%= build_sub_section('udp', @udp_config) %>
 
 <%= build_section('continuous_queries', @continuous_queries_config) %>
+<% end -%>
